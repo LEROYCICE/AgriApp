@@ -135,9 +135,15 @@
                       <div class="image"><i class="fa fa-user"></i></div>
                       <h3>Inscrivez-vous?</h3>
                     </div>
+
+                    <!-- Cette partie c'est pour l'inscription des utilisateurs -->
+
+                    <form action="/" method="post">
+
+                      @csrf
                     <div class="form-group" >
                       <span class="input-icon"><i class="fa fa-user"></i></span>
-                      <input type="text" name="username" class="form-control _ge_de_ol" type="text" placeholder="Entrer votre nom ou username" required="" aria-required="true">
+                      <input type="text" name="username" class="form-control _ge_de_ol" type="text" placeholder="Entrer votre nom ou pseudo" required="" aria-required="true">
                     </div>
                     <div class="form-group">
                       <span class="input-icon"><i class="fa fa-envelope"></i></span>
@@ -149,27 +155,32 @@
                     </div>
                     <div class="form-group">
                       <span class="input-icon"><i class="fa fa-lock"></i></span>
-                      <input type="password" name="password" class="form-control _ge_de_ol" type="text" placeholder="Confirmer votre mot de passe" required="" aria-required="true">
+                      <input type="password" name="password_confirmation" class="form-control _ge_de_ol" type="text" placeholder="Confirmer votre mot de passe" required="" aria-required="true">
                     </div>
                     <div class="form-group">
                       <div class="_btn_04">
-                       <button type="submit" style="border: none; color: #fff;"> Login </button>
+                       <button type="submit" style="border: none; color: #fff;"> S'inscrire </button>
                       </div>
                     </div>
+
+                    </form>
     
-                    <div class="form-group nm_lk"><p>Ou Connectez-vous via</p></div>
+                    <div class="form-group nm_lk"><p>Ou Connectez-vous via</p>
                     <div class="">
                       <div style="margin:1px;padding:20px 25px;background:#f7f7f7;font-size:13px;line-height:1.7;text-align:center">
                         En vous abonnant à AgriApp, vous acceptez nos <a href="/fr/service/terms/" target="_blank">Conditions générales</a>.
                         </div>
                     </div>
+                    </div>
 
+                    <!-- Cette partie c'est pour l'inscription avec les reseaux sociaux-->
+                    
                     <div class="form-group pt-0">
                       <div class="_social_04">
                         <ol>
-                          <li><i class="fa fa-facebook"></i></li>
-                          <li><i class="fa fa-twitter"></i></li>
-                          <li><i class="fa fa-google-plus"></i></li>
+                          <li><a href=""><i class="fa fa-facebook"></i> </a> </li>
+                          <li> <a href=""><i class="fa fa-twitter"></i></a></li>
+                          <li><a href=""><i class="fa fa-google-plus"></i> </a></li>
                         </ol>
                       </div>
                     </div>
@@ -197,6 +208,12 @@
                       <div class="image"><i class="fa fa-user"></i></div>
                       <h3>Connectez-vous?</h3>
                     </div>
+
+                    <!-- Cette partie c'est pour la connexion -->
+
+                    <form action="{{route('connexion')}}" method="post">
+
+                      @csrf
                     <div class="form-group">
                       <span class="input-icon"><i class="fa fa-envelope"></i></span>
                       <input type="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Entrer votre e-mail" required="" aria-required="true">
@@ -207,18 +224,19 @@
                     </div>
                     <div class="checkbox form-group">
                       <div class="form-check">
-                        <input class="form-check-input check-color" type="checkbox" value="" id="">
+                        <input class="form-check-input check-color" name="rappel" type="checkbox" value="" id="">
                         <label class="form-check-label" for="">
-                          Remember me
+                          Se rappeler de moi
                         </label>
                       </div>
-                      <a   data-bs-toggle="modal" data-bs-target="#exampleModal3" >mot de passe oublié</a>
+                      <a data-bs-toggle="modal" data-bs-target="#exampleModal3" style="cursor: pointer" >mot de passe oublié</a>
                     </div>
                     <div class="form-group">
                       <div class="_btn_04">
-                        <a href="#">Connexion</a>
-                      </div>
+                        <button type="submit" style="border: none; color: #fff;"> Se connecter </button>
+                       </div>
                     </div>
+                  </form>
                     <div class="">
                       <div style="margin:1px;padding:20px 25px;background:#f7f7f7;font-size:13px;line-height:1.7;text-align:center">
                         En vous abonnant à AgriApp, vous acceptez nos <a href="/fr/service/terms/" target="_blank">Conditions générales</a>.
@@ -226,15 +244,18 @@
                     </div>
     
                     <div class="form-group nm_lk"><p>ou Connectez via</p></div>
+
+                    <!-- Cette partie c'est pour la connexion avec les réseaux sociaux-->
     
                     <div class="form-group pt-0">
                       <div class="_social_04">
                         <ol>
-                          <li><i class="fa fa-facebook"></i></li>
-                          <li><i class="fa fa-twitter"></i></li>
-                          <li><i class="fa fa-google-plus"></i></li>
+                          <li> <a href=""><i class="fa fa-facebook"></i> </a></li>
+                          <li><a href=""><i class="fa fa-twitter"></i> </a></li>
+                          <li><a href=""><i class="fa fa-google-plus"></i> </a></li>
                         </ol>
                       </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -260,18 +281,23 @@
                       <h3>Entrez votre email </h3>
                       <h6 style="">Vous recevrez un lien de récupération dans votre e-mail</h2>
                     </div>
-                    <div class="form-group">
-                      <span class="input-icon"><i class="fa fa-envelope"></i></span>
-                      <input type="email" name="email" class="form-control _ge_de_ol" type="text" placeholder="Entrer votre e-mail" required="" aria-required="true">
-                    </div>
-    
-                    <div class="form-group">
-                      <div class="_btn_04">
-                        <a href="#">Send</a>
-                      </div>
-                    </div>
-                    
-    
+
+                    <!-- Cette partie c'est pour la récuperation de mot de passe -->
+
+                    <form action="" method="post">
+
+                      @csrf
+                        <div class="form-group">
+                          <span class="input-icon"><i class="fa fa-envelope"></i></span>
+                          <input type="email" name="recup-email" class="form-control _ge_de_ol" type="text" placeholder="Entrer votre e-mail" required="" aria-required="true">
+                        </div>
+        
+                        <div class="form-group">
+                          <div class="_btn_04">
+                            <button type="submit" style="border: none; color: #fff;"> Envoyer </button>
+                          </div>
+                        </div>
+                    </form>
                     
                   </div>
                 </div>
