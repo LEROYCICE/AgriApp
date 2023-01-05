@@ -8,26 +8,28 @@ use Illuminate\Http\Request;
 class InscriptionController extends Controller
 {
     public function pageInscription(){
-        return view('inscription') ;
+        return view('accueil') ;
     }
 
     public function traitementInscription(Request $request){
 
         $request->validate([
             'nom' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|unique:utilisateurs,email',
             'password' =>'required|min:8|confirmed',
             'password_confirmation' => 'required'
-        ]);
-        // il faut hacher le mot de passe avec la fct hash();
+        ]); 
+        
         $utilisateur = new Utilisateur() ;
         $utilisateur->nom = $request->nom ;
         $utilisateur->email = $request->email ;
         $utilisateur->password = $request->password;
+        $utilisateur->password_confirmation = $request->password_confirmation ;
 
         $resultat = $utilisateur->save() ;
+
         if ($resultat) {
-            return view('compte') ;
+            return back() ;
         }
 
     }

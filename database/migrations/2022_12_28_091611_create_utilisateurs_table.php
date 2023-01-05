@@ -20,6 +20,10 @@ class CreateUtilisateursTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('email')->unique;
+
+            $table->string('username');
+            $table->string('email') ;
+
             $table->string('password');
             $table->timestamps();
         });

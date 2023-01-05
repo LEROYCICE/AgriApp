@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InscriptionController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/inscription' , [InscriptionController::class , 'pageInscription']) ;
-Route::post('/inscription' , [InscriptionController::class, 'traitementInscription'])->name('inscription');
-
-Route::get('/accueil', function()
+Route::get('/', function()
 {
-    return view('index') ;
+    return view('accueil');
 }) ;
+
+Route::get('/' , [InscriptionController::class , 'pageInscription']) ;
+Route::post('/' , [InscriptionController::class, 'traitementInscription']) ;
+
+Route::get('/' , [ConnexionController::class , 'pageConnexion']) ;
+Route::post('/' , [ConnexionController::class , 'traitementConnexion'])->name('connexion') ;
+
+Route::get('/inscription' , function()
+{
+    return view('inscription') ;
+    
+}) ;
+
+
