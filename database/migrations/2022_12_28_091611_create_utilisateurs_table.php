@@ -11,14 +11,16 @@ class CreateUtilisateursTable extends Migration
      *
      * @return void
      */
+    /*
+    faut laisser tomber ce controller*/ 
+    
     public function up()
     {
         Schema::create('utilisateurs', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->string('email') ;
+            $table->string('email')->unique;
             $table->string('password');
-            $table->string('password_confirmation');
             $table->timestamps();
         });
     }
