@@ -28,8 +28,26 @@ Route::post('/' , [ConnexionController::class , 'traitementConnexion'])->name('c
 
 Route::get('/inscription' , function()
 {
-    return view('inscription') ;
+    return view('connexion.sign-up') ;
     
+}) ;
+
+Route::get('/connexion' , function()
+{
+    return view('connexion.sign-in');
+    
+}) ;
+
+Route::get('/password-reset' , function(){
+    return view('connexion.password-reset') ;
+}) ;
+
+Route::get('/password-change' , function(){
+    return view('connexion.password-change') ;
+}) ;
+
+Route::get('/form-message' , function(){
+    return view('connexion.form-message') ;
 }) ;
 
 
