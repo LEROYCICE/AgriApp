@@ -20,23 +20,11 @@ Route::get('/', function()
     return view('accueil');
 }) ;
 
-Route::get('/' , [InscriptionController::class , 'pageInscription']) ;
-Route::post('/' , [InscriptionController::class, 'traitementInscription']) ;
+Route::get('/inscription' , [InscriptionController::class , 'pageInscription']) ;
+Route::post('/inscription' , [InscriptionController::class, 'traitementInscription']) ;
 
-Route::get('/' , [ConnexionController::class , 'pageConnexion']) ;
-Route::post('/' , [ConnexionController::class , 'traitementConnexion'])->name('connexion') ;
-
-Route::get('/inscription' , function()
-{
-    return view('connexion.sign-up') ;
-    
-}) ;
-
-Route::get('/connexion' , function()
-{
-    return view('connexion.sign-in');
-    
-}) ;
+Route::get('/connexion' , [ConnexionController::class , 'pageConnexion']) ;
+Route::post('/connexion' , [ConnexionController::class , 'traitementConnexion']);
 
 Route::get('/password-reset' , function(){
     return view('connexion.password-reset') ;

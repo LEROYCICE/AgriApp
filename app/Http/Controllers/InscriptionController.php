@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class InscriptionController extends Controller
 {
     public function pageInscription(){
-        return view('accueil') ;
+        return view('connexion.sign-up') ;
     }
 
     public function traitementInscription(Request $request){
