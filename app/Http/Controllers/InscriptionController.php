@@ -23,8 +23,8 @@ class InscriptionController extends Controller
         $utilisateur = new Utilisateur() ;
         $utilisateur->nom = $request->nom ;
         $utilisateur->email = $request->email ;
-        $utilisateur->password = $request->password;
-        $utilisateur->password_confirmation = $request->password_confirmation ;
+        $utilisateur->password = bcrypt($request->password);
+        $utilisateur->password_confirmation = bcrypt($request->password_confirmation) ;
 
         $resultat = $utilisateur->save() ;
 

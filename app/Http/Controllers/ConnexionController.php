@@ -15,19 +15,22 @@ class ConnexionController extends Controller
     public function traitementConnexion(Request $request)
     {
         $request->validate([
-            'email' => 'required',
-            'password' => 'required' ,
+            'email' => 'required' ,
+            'password' => 'required'
         ]) ;
 
-        $utilisateur = auth()->attempt([
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
-        if ($utilisateur) {
-            return redirect('/');
-        }
+        $resultat = auth()->attempt([
+            'email' => $request->email ,
+            'password' => $request->password ,
+        ]) ;
+        
+        if ($resultat) {
+            return redirect('/') ;
+        } 
         else{
-            dd($utilisateur) ;
+                dd($resultat) ;
         }
+
+
     }
 }
