@@ -29,6 +29,9 @@ class InscriptionController extends Controller
         $resultat = $utilisateur->save() ;
 
         if ($resultat) {
+
+            flash('Vous venez de vous inscrire avec succes')->success() ;
+
             return back() ;
         }
 

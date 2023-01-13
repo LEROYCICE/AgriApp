@@ -13,6 +13,8 @@
                     <h3 class="font-weight-bold mb-3">Connexion</h3>
                     <p class="text-muted">Connectez-vous pour continuer </p>
                 </div>
+
+                @include('flash::message')
                 <form action="/connexion" method="post">
                     @csrf
                     <div class="form-group">

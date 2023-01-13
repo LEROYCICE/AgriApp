@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\InscriptionController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,13 +27,12 @@ Route::post('/inscription' , [InscriptionController::class, 'traitementInscripti
 Route::get('/connexion' , [ConnexionController::class , 'pageConnexion']) ;
 Route::post('/connexion' , [ConnexionController::class , 'traitementConnexion']);
 
-Route::get('/password-reset' , function(){
-    return view('connexion.password-reset') ;
-}) ;
 
-Route::get('/password-change' , function(){
-    return view('connexion.password-change') ;
-}) ;
+Route::get('/password-reset' , [ForgotPasswordController::class, 'formulaireDeMail']);
+Route::post('/password-reset' , [ForgotPasswordController::class , 'traitementMail']) ;
+
+Route::get('/password-change/{token}' , [ForgotPasswordController::class , 'formulaireDeNouveauPassword'])->name('change.password') ;
+Route::post('/password-change' , [ForgotPasswordController::class , 'traitementPassword']) ;
 
 Route::get('/form-message' , function(){
     return view('connexion.form-message') ;

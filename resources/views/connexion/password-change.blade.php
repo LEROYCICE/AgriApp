@@ -11,11 +11,22 @@
                 <div class="my-5 text-center">
                     <h3 class="font-weight-bold mb-3">Mot de Passe oublié</h3>
                 </div>
-                <form>
+
+                @include('flash::message')
+                <form action="/password-change" method="post">
+
+                    @csrf 
                     <div class="form-group">
-                        <label for="password">New password</label>
+                        <label for="password">Email</label>
                         <div class="form-icon-wrapper">
-                            <input type="password" class="form-control" id="password" placeholder="Entrer votre password" autofocus
+                            <input type="email" name="email" class="form-control" id="password"  autofocus
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Nouveau Mot de passe</label>
+                        <div class="form-icon-wrapper">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Entrer votre nouveau mot de passe" autofocus
                                    required>
                             <i class="form-icon-left fas fa-lock"></i>
                             <a href="#" class="form-icon-right password-show-hide" title="Hide or show password">
@@ -24,9 +35,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password2">password comfirmed</label>
+                        <label for="password2">Confirmer le mot de passe</label>
                         <div class="form-icon-wrapper">
-                            <input type="password" class="form-control" id="password2" placeholder="Entrer  votrepassword" autofocus
+                            <input type="password" name="password_confirmation" class="form-control" id="password2" placeholder="Confirmer le mot de passe" autofocus
                                    required>
                             <i class="form-icon-left fas fa-lock"></i>
                             <a href="#" class="form-icon-right password-show-hide" title="Hide or show password">
@@ -35,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block">Change Password</button>
+                        <button class="btn btn-primary btn-block" type="submit">Modifier le mot de passe</button>
                     </div>
                 </form>
                 <p class="text-center">Maintenant, Vous pouvez<a href="sign-in.html">vous connectez</a> ou <a href="sign-up.html">créez un  nouveau compte</a>.</p>

@@ -51,6 +51,7 @@
                     </div>
                     <p class="text-center">Avez vous déja un compte? si oui,<a href="/connexion">Connectez-vous?</a>.</p>
                 </form>
+                @include('flash::message')
             </div>
         </div>
     </div>

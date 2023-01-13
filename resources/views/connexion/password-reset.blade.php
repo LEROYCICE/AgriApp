@@ -12,11 +12,16 @@
                     <p class="text-muted">Veuillez entrer votre e-mail</p>
                     <p class="text-muted">Ensuite après l'envoie de la requette, veuillez vérifier votre e-mail</p>
                 </div>
-                <form>
+
+                @include('flash::message')
+                
+                <form action="/password-reset" method="post">
+                    
+                    @csrf
                     <div class="form-group">
                         <label for="email">Email</label>
                         <div class="form-icon-wrapper">
-                            <input type="email" class="form-control" id="email" placeholder="Entrer votre email" autofocus
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Entrer votre email" autofocus
                                    required>
                             <i class="form-icon-left fas fa-envelope"></i>
                         </div>
@@ -25,7 +30,7 @@
                         <button class="btn btn-primary btn-block">Envoyer</button>
                     </div>
                 </form>
-                <p class="text-center">retourner pour<a href="sign-in.html">vous connectez</a> ou <a href="/inscription">sur la page d'acceuill
+                <p class="text-center">retourner pour<a href="/connexion">vous connectez</a> ou <a href="/">sur la page d'acceuil
                     account</a>.</p>
             </div>
         </div>

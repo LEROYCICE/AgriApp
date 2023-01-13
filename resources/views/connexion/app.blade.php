@@ -9,6 +9,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap-4.5.3/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <!-- fontawesome -->
     <link rel="stylesheet" href="../assets/vendor/fontawesome-free-6.1.2-web/css/all.min.css" type="text/css">
     <!-- Google font -->
@@ -49,8 +51,8 @@
               <li><a class="nav-link scrollto liens" href="#actuces">Astuces</a></li>
               <li><a class="nav-link scrollto liens" href="#actualites">Actualités</a></li>
               <li><a class="nav-link scrollto liens" href="#contact">Contact</a></li>
-              <li><a class="btn-connexion"  href="#">@yield('connexion' , 'Connexion')</a></li>
-              <li><a class="btn-register"  href="#" >@yield('inscription' , 'Inscrpition')</a></li>
+              <li><a class="btn-connexion"  href="/connexion">@yield('connexion' , 'Connexion')</a></li>
+              <li><a class="btn-register"  href="/inscription" >@yield('inscription' , 'Inscrpition')</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
